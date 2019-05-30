@@ -1,1 +1,1 @@
-# V2C
+This is a test repository.
