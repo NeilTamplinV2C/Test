@@ -1,26 +1,20 @@
-select
+SELECT
 --i.ID
 oo.id
 ,ip.[Tenancy Number]
-from [SERVER].[Housing_Test].[dbo].[Occupancies_Occupancy] oo with (NOLOCK)
-inner join [SERVER].[Housing_Test].[dbo].[PropertyStructure_Unit] psu with (NOLOCK) on
-oo.Company = psu.Company and
+FROM [SERVER].[Housing_Test].[dbo].[Occupancies_Occupancy] oo with (NOLOCK)
+inner JOIN [SERVER].[Housing_Test].[dbo].[PropertyStructure_Unit] psu with (NOLOCK) ON
+oo.Company = psu.Company AND
 oo.Unit = psu.id
-left join [SERVER].[Housing_Test].[dbo].[Occupancies_people] op on
-oo.company = op.Company and
-oo.id = op.Occupancy and
-op.CurrentPerson = 1 and
+left JOIN [SERVER].[Housing_Test].[dbo].[Occupancies_people] op ON
+oo.company = op.Company AND
+oo.id = op.Occupancy AND
+op.CurrentPerson = 1 AND
 op.MainTenant = 1
-left join [SERVER].[Housing_Test].[dbo].[Peoples_People] pp on
-op.Company = pp.Company and
+left JOIN [SERVER].[Housing_Test].[dbo].[Peoples_People] pp ON
+op.Company = pp.Company AND
 op.People = pp.ID
-inner join Itemprofiles ip
-      on oo.unit Collate SQL_Latin1_General_CP1_CI_AS = ip.[Property Reference]
-      where oo.id = 99
-      /*AND CAST(oo.id AS nvarchar(25)) = ip.[Tenancy Number]
-      inner join items i
-      ON i.id = ip._i_itemID
-      AND i.ItemTypeID = 6
-      AND ip.StructureID = 12
-WHERE 
-oo.[enddate] <= GETDATE()*/
+inner JOIN Itemprofiles ip
+      ON oo.unit Collate SQL_Latin1_General_CP1_CI_AS = ip.[Property Reference]
+WHERE oo.id = 99
+      
