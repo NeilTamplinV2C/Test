@@ -1,3 +1,5 @@
 #This is a test script
 
+#This is an added line.
+
 Select * FROM [TABLE]
