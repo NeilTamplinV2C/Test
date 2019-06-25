@@ -2,4 +2,6 @@
 
 #This is an added line.
 
+#This is another added line to demonstrate a patch.
+
 Select * FROM [TABLE]
